@@ -1,0 +1,41 @@
+# This is a standard Unity .gitignore file
+# It ignores all the temporary files and large, locally-generated data.
+
+/[Aa]ssets/AssetStoreTools*
+
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+
+# MemoryCaptures can be huge
+/[Mm]emoryCaptures/
+
+# Asset meta files should be committed!
+!/[Aa]ssets/**/*.meta
+
+# But meta files for temporary folders should be ignored
+/[Ll]ibrary/**/*.meta
+
+# Visual Studio / Rider files
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.sls
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
