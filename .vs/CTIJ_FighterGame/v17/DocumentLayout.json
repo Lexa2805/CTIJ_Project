@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Lexa\\CTIJ_FighterGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lexa\\CTIJ_FighterGame\\Assets\\Script\\CameraFollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Script\\CameraFollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lexa\\CTIJ_FighterGame\\Assets\\Characters\\Scripts_Rafa\\UniversalCombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Characters\\Scripts_Rafa\\UniversalCombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lexa\\CTIJ_FighterGame\\Assets\\Script\\FighterAttack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Script\\FighterAttack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lexa\\CTIJ_FighterGame\\Assets\\Script\\FighterMovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Script\\FighterMovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lexa\\CTIJ_FighterGame\\Assets\\Script\\FighterController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Script\\FighterController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lexa\\CTIJ_FighterGame\\Assets\\Characters\\Scripts_Rafa\\UniversalMovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Characters\\Scripts_Rafa\\UniversalMovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lexa\\CTIJ_FighterGame\\Assets\\Script\\CameraFollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Script\\CameraFollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lexa\\CTIJ_FighterGame\\Assets\\Script\\HealthManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,6 +43,58 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "UniversalCombat.cs",
+              "DocumentMoniker": "C:\\Users\\Lexa\\CTIJ_FighterGame\\Assets\\Characters\\Scripts_Rafa\\UniversalCombat.cs",
+              "RelativeDocumentMoniker": "Assets\\Characters\\Scripts_Rafa\\UniversalCombat.cs",
+              "ToolTip": "C:\\Users\\Lexa\\CTIJ_FighterGame\\Assets\\Characters\\Scripts_Rafa\\UniversalCombat.cs",
+              "RelativeToolTip": "Assets\\Characters\\Scripts_Rafa\\UniversalCombat.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAADwv0cAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T18:19:57.712Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FighterAttack.cs",
+              "DocumentMoniker": "C:\\Users\\Lexa\\CTIJ_FighterGame\\Assets\\Script\\FighterAttack.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\FighterAttack.cs",
+              "ToolTip": "C:\\Users\\Lexa\\CTIJ_FighterGame\\Assets\\Script\\FighterAttack.cs",
+              "RelativeToolTip": "Assets\\Script\\FighterAttack.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAADwvy0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T17:40:09.653Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FighterMovement.cs",
+              "DocumentMoniker": "C:\\Users\\Lexa\\CTIJ_FighterGame\\Assets\\Script\\FighterMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\FighterMovement.cs",
+              "ToolTip": "C:\\Users\\Lexa\\CTIJ_FighterGame\\Assets\\Script\\FighterMovement.cs",
+              "RelativeToolTip": "Assets\\Script\\FighterMovement.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAADwvzAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T17:31:03.899Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UniversalMovement.cs",
+              "DocumentMoniker": "C:\\Users\\Lexa\\CTIJ_FighterGame\\Assets\\Characters\\Scripts_Rafa\\UniversalMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\Characters\\Scripts_Rafa\\UniversalMovement.cs",
+              "ToolTip": "C:\\Users\\Lexa\\CTIJ_FighterGame\\Assets\\Characters\\Scripts_Rafa\\UniversalMovement.cs",
+              "RelativeToolTip": "Assets\\Characters\\Scripts_Rafa\\UniversalMovement.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T17:11:49.983Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "CameraFollow.cs",
               "DocumentMoniker": "C:\\Users\\Lexa\\CTIJ_FighterGame\\Assets\\Script\\CameraFollow.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\CameraFollow.cs",
@@ -39,7 +107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "HealthManager.cs",
               "DocumentMoniker": "C:\\Users\\Lexa\\CTIJ_FighterGame\\Assets\\Script\\HealthManager.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\HealthManager.cs",
@@ -47,18 +115,17 @@
               "RelativeToolTip": "Assets\\Script\\HealthManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T23:56:33.153Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-28T23:56:33.153Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "FighterController.cs",
               "DocumentMoniker": "C:\\Users\\Lexa\\CTIJ_FighterGame\\Assets\\Script\\FighterController.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\FighterController.cs",
               "ToolTip": "C:\\Users\\Lexa\\CTIJ_FighterGame\\Assets\\Script\\FighterController.cs",
               "RelativeToolTip": "Assets\\Script\\FighterController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-25T23:24:44.174Z",
               "EditorCaption": ""
