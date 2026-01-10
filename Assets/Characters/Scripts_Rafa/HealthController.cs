@@ -47,4 +47,10 @@ public class HealthController : MonoBehaviour
             gm.EndGame(gameObject.name);
         }
     }
+
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
 }
