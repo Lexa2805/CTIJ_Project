@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using TMPro;
 
 public class HealthController : MonoBehaviour
 {
@@ -6,28 +7,44 @@ public class HealthController : MonoBehaviour
     private float currentHealth;
     public Animator characterAnimator;
 
-    private bool isDead = false; 
+    [Header("UI")]
+    public TMP_Text hpText;
+
+    private bool isDead = false;
 
     void Start()
     {
         currentHealth = maxHealth;
         isDead = false;
+        UpdateHPText();
     }
 
     public void TakeDamage(float damage)
     {
-        if (isDead) return; 
+        if (isDead) return;
 
         currentHealth -= damage;
-         Debug.Log(gameObject.name + " HP: " + currentHealth);
+        if (currentHealth < 0) currentHealth = 0;
+
+        Debug.Log(gameObject.name + " HP: " + currentHealth);
+
+        UpdateHPText();
 
         if (currentHealth <= 0)
         {
-            Die(); 
+            Die();
         }
         else
         {
-            characterAnimator.SetTrigger("Hit"); 
+            characterAnimator.SetTrigger("Hit");
+        }
+    }
+
+    void UpdateHPText()
+    {
+        if (hpText != null)
+        {
+            hpText.text = gameObject.name + " HP: " + Mathf.CeilToInt(currentHealth);
         }
     }
 
@@ -36,14 +53,12 @@ public class HealthController : MonoBehaviour
         if (isDead) return;
         isDead = true;
 
-       
         characterAnimator.SetTrigger("Death");
 
-        
+        // 🔴 ANUNȚĂ GAME MANAGER
         GameManager gm = FindObjectOfType<GameManager>();
         if (gm != null)
         {
-           
             gm.EndGame(gameObject.name);
         }
     }
@@ -52,5 +67,4 @@ public class HealthController : MonoBehaviour
     {
         return currentHealth;
     }
-
 }

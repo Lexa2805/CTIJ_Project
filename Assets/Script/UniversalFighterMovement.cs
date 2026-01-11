@@ -2,70 +2,81 @@
 
 public class UniversalFighterMovement : MonoBehaviour
 {
-    [Header("⚙️ Movement")]
-    public float moveSpeed = 5f;
+    [Header("Movement")]
+    public float speed = 4f;
 
-    [Header("🎮 Controls")]
-    public KeyCode leftKey = KeyCode.A;
-    public KeyCode rightKey = KeyCode.D;
+    [Header("Controls")]
+    public KeyCode leftKey;
+    public KeyCode rightKey;
 
-    [Header("MODEL TO FLIP (Only the mesh!)")]
+    [Header("Opponent")]
+    public Transform enemy;
+
+    [Header("Visual Model (mesh only)")]
     public Transform model;
 
-    private Rigidbody rb;
-    private Animator anim;
     private float moveInput;
+    private Animator anim;
 
     private const string VELOCITY = "Velocity";
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
-
-      
-        rb.freezeRotation = true;
-
-        if (model == null)
-            Debug.LogError("❌ Model is NOT assigned! Drag your mesh into the model field.");
     }
 
     void Update()
     {
+        if (enemy == null || model == null) return;
+
         ReadInput();
-        UpdateVisuals();
+        Move();
+        FaceEnemy();
+        UpdateAnimator();
     }
 
-    void FixedUpdate()
+    // =========================
+    // INPUT (SEPARAT)
+    // =========================
+    void ReadInput()
     {
-        MoveCharacter();
-    }
+        moveInput = 0f;
 
-    private void ReadInput()
-    {
         if (Input.GetKey(rightKey))
-            moveInput = 1;
+            moveInput = 1f;
         else if (Input.GetKey(leftKey))
-            moveInput = -1;
+            moveInput = -1f;
+    }
+
+    // =========================
+    // MOVEMENT (AXA Z)
+    // =========================
+    void Move()
+    {
+        transform.Translate(Vector3.forward * moveInput * speed * Time.deltaTime);
+    }
+
+    // =========================
+    // ALWAYS FACE ENEMY
+    // =========================
+    void FaceEnemy()
+    {
+        Vector3 scale = model.localScale;
+
+        if (enemy.position.x > transform.position.x)
+            scale.x = Mathf.Abs(scale.x);
         else
-            moveInput = 0;
+            scale.x = -Mathf.Abs(scale.x);
+
+        model.localScale = scale;
     }
 
-    private void MoveCharacter()
+    // =========================
+    // ANIMATION
+    // =========================
+    void UpdateAnimator()
     {
-        Vector3 velocity = rb.linearVelocity;
-        velocity.x = moveInput * moveSpeed;
-        rb.linearVelocity = velocity;
-    }
-
-    private void UpdateVisuals()
-    {
-        anim.SetFloat(VELOCITY, Mathf.Abs(moveInput));
-
-        // Flip ONLY the mesh
-        if (moveInput > 0)
-            model.localRotation = Quaternion.Euler(0, 90, 0);
-        else if (moveInput < 0)
-            model.localRotation = Quaternion.Euler(0, -90, 0);
+        if (anim != null)
+            anim.SetFloat(VELOCITY, Mathf.Abs(moveInput));
     }
 }

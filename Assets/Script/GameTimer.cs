@@ -3,67 +3,42 @@ using TMPro;
 
 public class GameTimer : MonoBehaviour
 {
-    [Header("Timer Settings")]
-    public float startTime = 10f;
-    public float timeRemaining;
-    public bool timerIsRunning;
+    public float startTime = 99f;
+    public TMP_Text timerText;
 
-    [Header("UI")]
-    public TextMeshProUGUI timeText;
+    private float timeRemaining;
+    private bool timeUp = false;
 
-    [Header("References")]
-    public GameManager gameManager;
-    public HealthManager healthManager;
-
-    private void Start()
-    {
-        ResetTimer();
-        StartTimer();
-    }
-
-    private void Update()
-    {
-        if (!timerIsRunning) return;
-
-        if (timeRemaining > 0)
-        {
-            timeRemaining -= Time.deltaTime;
-            DisplayTime(timeRemaining);
-        }
-        else
-        {
-            timeRemaining = 0;
-            timerIsRunning = false;
-            DisplayTime(timeRemaining);
-            TimerFinished();
-        }
-    }
-
-    private void TimerFinished()
-    {
-        Debug.Log("Time has run out!");
-
-        if (gameManager != null)
-        {
-            gameManager.EndGameByTime();
-        }
-    }
-
-
-    public void StartTimer()
-    {
-        timerIsRunning = true;
-    }
-
-    public void ResetTimer()
+    void Start()
     {
         timeRemaining = startTime;
-        DisplayTime(timeRemaining);
+        UpdateTimerUI();
     }
 
-    private void DisplayTime(float timeToDisplay)
+    void Update()
     {
-        int seconds = Mathf.CeilToInt(timeToDisplay);
-        timeText.text = seconds.ToString();
+        if (timeUp) return;
+
+        timeRemaining -= Time.deltaTime;
+
+        if (timeRemaining <= 0f)
+        {
+            timeRemaining = 0f;
+            timeUp = true;
+
+            Debug.Log("TIME UP");
+
+            GameManager.Instance.EndGameByTime();
+        }
+
+        UpdateTimerUI();
+    }
+
+    void UpdateTimerUI()
+    {
+        if (timerText != null)
+        {
+            timerText.text = Mathf.CeilToInt(timeRemaining).ToString();
+        }
     }
 }

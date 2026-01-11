@@ -5,6 +5,20 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
     [Header("UI Reference")]
     public Text winnerText;
 
@@ -71,6 +85,51 @@ public class GameManager : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "Neon City")
+        {
+            isGameOver = false;
+
+            player1Health = GameObject.Find("Arissa")
+                .GetComponent<HealthController>();
+
+            player2Health = GameObject.Find("Medea")
+                .GetComponent<HealthController>();
+
+            GameObject wt = GameObject.Find("Winner_Text");
+            if (wt == null)
+            {
+                Debug.LogError("Winner_Text not found");
+                return;
+            }
+            winnerText = wt.GetComponent<Text>();
+
+
+            if (winnerText == null || player1Health == null || player2Health == null)
+            {
+                Debug.LogError("GameManager: Missing references in Neon City");
+                return;
+            }
+
+            winnerText.gameObject.SetActive(false);
+            Time.timeScale = 1f;
+
+            Debug.Log("GameManager linked to Neon City");
+        }
+    }
+
 
 
 }
