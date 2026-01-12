@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -16,7 +17,7 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject); 
     }
 
     [Header("UI Reference")]
@@ -26,6 +27,23 @@ public class GameManager : MonoBehaviour
     public HealthController player2Health;
 
     private bool isGameOver = false;
+
+   
+    void Update()
+    {
+
+        // M - Restart 
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            GoToMainMenu();
+        }
+
+        // N - Quit Game
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            QuitGame();
+        }
+    }
 
     public void EndGame(string deadCharacterName)
     {
@@ -39,19 +57,26 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3.0f);
 
-        winnerText.gameObject.SetActive(true);
-      
-
-        if (deadCharacterName == "Arissa")
+        if (winnerText != null)
         {
-            winnerText.text = "Medea Wins!";
-        }
-        else
-        {
-            winnerText.text = "Arissa Wins!";
+            winnerText.gameObject.SetActive(true);
+
+            string message = "";
+            if (deadCharacterName == "Arissa")
+            {
+                message = "Medea Wins!";
+            }
+            else
+            {
+                message = "Arissa Wins!";
+            }
+
+          
+            message += "\n\nPress 'M' for Main Menu\nPress 'N' to Quit";
+            winnerText.text = message;
         }
 
-        Time.timeScale = 0;
+        Time.timeScale = 0; 
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -62,22 +87,25 @@ public class GameManager : MonoBehaviour
         if (isGameOver) return;
         isGameOver = true;
 
-        winnerText.gameObject.SetActive(true);
+        if (winnerText != null)
+        {
+            winnerText.gameObject.SetActive(true);
 
-        float p1HP = player1Health.GetCurrentHealth();
-        float p2HP = player2Health.GetCurrentHealth();
+            float p1HP = player1Health.GetCurrentHealth();
+            float p2HP = player2Health.GetCurrentHealth();
 
-        if (p1HP > p2HP)
-        {
-            winnerText.text = "Arissa Wins!";
-        }
-        else if (p2HP > p1HP)
-        {
-            winnerText.text = "Medea Wins!";
-        }
-        else
-        {
-            winnerText.text = "DRAW!";
+            string message = "";
+
+            if (p1HP > p2HP)
+                message = "Arissa Wins!";
+            else if (p2HP > p1HP)
+                message = "Medea Wins!";
+            else
+                message = "DRAW!";
+
+            
+            message += "\n\nPress 'M' for Menu\nPress 'N' to Quit";
+            winnerText.text = message;
         }
 
         Time.timeScale = 0f;
@@ -85,6 +113,31 @@ public class GameManager : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
+
+    
+
+    void GoToMainMenu()
+    {
+        
+        Time.timeScale = 1f;
+
+        
+       
+        SceneManager.LoadScene("SampleScene");
+    }
+
+    void QuitGame()
+    {
+        Debug.Log("QUIT GAME!");
+        Application.Quit();
+
+        
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+    }
+
+    
 
     void OnEnable()
     {
@@ -98,38 +151,32 @@ public class GameManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        
         if (scene.name == "Neon City")
         {
             isGameOver = false;
+            Time.timeScale = 1f; 
 
-            player1Health = GameObject.Find("Arissa")
-                .GetComponent<HealthController>();
+           
+            GameObject p1 = GameObject.Find("Arissa");
+            if (p1) player1Health = p1.GetComponent<HealthController>();
 
-            player2Health = GameObject.Find("Medea")
-                .GetComponent<HealthController>();
+            GameObject p2 = GameObject.Find("Medea");
+            if (p2) player2Health = p2.GetComponent<HealthController>();
 
+            
             GameObject wt = GameObject.Find("Winner_Text");
-            if (wt == null)
+            if (wt)
             {
-                Debug.LogError("Winner_Text not found");
-                return;
+                winnerText = wt.GetComponent<Text>();
+                winnerText.gameObject.SetActive(false);
             }
-            winnerText = wt.GetComponent<Text>();
-
-
-            if (winnerText == null || player1Health == null || player2Health == null)
+            else
             {
-                Debug.LogError("GameManager: Missing references in Neon City");
-                return;
+                Debug.LogError("Winner_Text lipseste din scena Neon City!");
             }
 
-            winnerText.gameObject.SetActive(false);
-            Time.timeScale = 1f;
-
-            Debug.Log("GameManager linked to Neon City");
+            Debug.Log("GameManager: Scena Neon City initializata.");
         }
     }
-
-
-
 }

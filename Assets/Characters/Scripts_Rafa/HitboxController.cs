@@ -10,19 +10,19 @@ public class HitboxController : MonoBehaviour
     void OnEnable()
     {
         hasHit = false;
-        Debug.Log("🟢 Hitbox ACTIVAT: " + gameObject.name);
+        Debug.Log("🟢 Hitbox activated: " + gameObject.name);
     }
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("🟡 Coliziune detectată cu: " + other.gameObject.name);
+        Debug.Log("🟡 Collision detected " + other.gameObject.name);
 
         if (hasHit) return;
 
        
         if (other.gameObject == owner)
         {
-            Debug.Log("--- Ignor (Owner)");
+            Debug.Log("Ignore (Owner)");
             return;
         }
 
@@ -31,13 +31,13 @@ public class HitboxController : MonoBehaviour
 
         if (targetHealth != null)
         {
-            Debug.Log("🔴 INAMIC GĂSIT! ");
+            Debug.Log("🔴 Enemy found ");
             targetHealth.TakeDamage(damageAmount);
             hasHit = true;
         }
         else
         {
-            Debug.Log("--- Obiectul lovit NU are HealthController în Parent.");
+            Debug.Log("Obiectul lovit nu are HealthController ");
         }
     }
 }

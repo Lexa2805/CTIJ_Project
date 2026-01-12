@@ -6,6 +6,7 @@ public class MedeaAttack : MonoBehaviour
     public KeyCode punchKey = KeyCode.Keypad1;
     public KeyCode kickKey = KeyCode.Keypad2;
     public KeyCode jumpKey = KeyCode.Keypad0;
+    public KeyCode guardKey = KeyCode.L;
 
     [Header("References")]
     public Animator animator;
@@ -25,6 +26,7 @@ public class MedeaAttack : MonoBehaviour
         HandlePunch();
         HandleKick();
         HandleJump();
+        animator.SetBool("IsGuarding", Input.GetKey(guardKey));
     }
 
     private void HandlePunch()

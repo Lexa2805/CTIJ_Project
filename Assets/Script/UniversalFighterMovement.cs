@@ -4,6 +4,7 @@ public class UniversalFighterMovement : MonoBehaviour
 {
     [Header("Movement")]
     public float speed = 4f;
+    public float jumpForce = 6f;
 
     [Header("Controls")]
     public KeyCode leftKey;
@@ -35,9 +36,9 @@ public class UniversalFighterMovement : MonoBehaviour
         UpdateAnimator();
     }
 
-    // =========================
-    // INPUT (SEPARAT)
-    // =========================
+    
+    // INPUT 
+   
     void ReadInput()
     {
         moveInput = 0f;
@@ -48,17 +49,17 @@ public class UniversalFighterMovement : MonoBehaviour
             moveInput = -1f;
     }
 
-    // =========================
+    
     // MOVEMENT (AXA Z)
-    // =========================
+   
     void Move()
     {
         transform.Translate(Vector3.forward * moveInput * speed * Time.deltaTime);
     }
 
-    // =========================
+   
     // ALWAYS FACE ENEMY
-    // =========================
+   
     void FaceEnemy()
     {
         Vector3 scale = model.localScale;
@@ -71,9 +72,9 @@ public class UniversalFighterMovement : MonoBehaviour
         model.localScale = scale;
     }
 
-    // =========================
+   
     // ANIMATION
-    // =========================
+  
     void UpdateAnimator()
     {
         if (anim != null)

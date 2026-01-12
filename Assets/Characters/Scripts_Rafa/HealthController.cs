@@ -22,6 +22,14 @@ public class HealthController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         if (isDead) return;
+        if (characterAnimator.GetBool("IsGuarding"))
+        {
+            Debug.Log(" blocked attack!");
+
+           
+            return;        
+            // damage = damage / 2;
+        }
 
         currentHealth -= damage;
         if (currentHealth < 0) currentHealth = 0;
@@ -55,7 +63,7 @@ public class HealthController : MonoBehaviour
 
         characterAnimator.SetTrigger("Death");
 
-        // 🔴 ANUNȚĂ GAME MANAGER
+        
         GameManager gm = FindObjectOfType<GameManager>();
         if (gm != null)
         {

@@ -27,10 +27,15 @@ public class ArissaAttack : MonoBehaviour
     void Update()
     {
      
-        animator.SetBool("IsPunching", Input.GetKey(punchKey));
+        //animator.SetBool("IsPunching", Input.GetKey(punchKey));
 
-     
-        animator.SetBool("IsKicking", Input.GetKey(kickKey));
+        if (Input.GetKeyDown(punchKey))
+            animator.SetTrigger("IsPunching");
+
+
+        //animator.SetBool("IsKicking", Input.GetKey(kickKey));
+        if (Input.GetKeyDown(kickKey))
+            animator.SetTrigger("IsKicking");
 
         animator.SetBool("IsGuarding", Input.GetKey(blockKey));
 
